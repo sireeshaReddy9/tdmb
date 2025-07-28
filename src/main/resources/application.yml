@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: movie-service
+
+  datasource:
+    url: jdbc:h2:mem:moviesdb  # In-memory H2 database
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    platform: h2
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console  # Web console path (e.g., http://localhost:8081/h2-console)
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # Can be 'create', 'update', 'validate', or 'none'
+    show-sql: true       # Logs SQL queries to the console
+    database-platform: org.hibernate.dialect.H2Dialect
+
+server:
+  port: 8081
