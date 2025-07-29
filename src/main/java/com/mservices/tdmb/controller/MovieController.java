@@ -4,10 +4,10 @@ import com.mservices.tdmb.model.Movie;
 import com.mservices.tdmb.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/movies")
 public class MovieController {
 
     private MovieService movieService;
@@ -17,7 +17,7 @@ public class MovieController {
         this.movieService=movieService;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Movie> postMovie(@RequestBody Movie movie){
         Movie createdMovie=movieService.createMovie(movie);
         return ResponseEntity.ok(createdMovie);
